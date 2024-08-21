@@ -1,0 +1,10 @@
+{
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "no-empty": [1, { "allowEmptyCatch": true }]
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": "eslint:recommended"
+}
