@@ -1,10 +1,10 @@
 {
   "name": "@jibone/unmineable-cli",
+  "version": "0.0.0",
+  "description": "Cli interface to unMineable.",
   "bin": {
     "unmineable": "./dist/index.js"
   },
-  "version": "0.0.0",
-  "description": "Cli interface to unMineable.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
