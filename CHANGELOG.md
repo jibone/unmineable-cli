@@ -1,5 +1,11 @@
 # @jibone/unmineable-cli
 
+## 0.0.3
+
+### Patch Changes
+
+- d1a2a9a: Fix the publish CI pipeline.
+
 ## 0.0.2
 
 ### Patch Changes
