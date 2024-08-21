@@ -2,12 +2,14 @@
 
 import { Command } from "commander";
 
+let { version } = require("./../package.json");
+
 const program = new Command();
 
 program
   .name("unmineable-cli")
   .description("CLI tool to query unMineable mining pool")
-  .version("0.0.0"); // [TODO] change this to get from package.json when changeset is setup.
+  .version(version);
 
 program
   .action(() => {
