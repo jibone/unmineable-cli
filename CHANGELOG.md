@@ -1,5 +1,11 @@
 # @jibone/unmineable-cli
 
+## 0.0.4
+
+### Patch Changes
+
+- 72dd5b5: Fix publish pipeline set package to public access
+
 ## 0.0.3
 
 ### Patch Changes
