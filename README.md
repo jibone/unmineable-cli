@@ -91,6 +91,6 @@ results:
 ### To Dos
 
 - ✅ balance - Show wallet balance.
-- ⏳ workers - Show worker status.
+- ✅ workers - Show workers status.
 - ⏳ stats - Show the full stats.
 - ⏳ payments - Show the payment list.
