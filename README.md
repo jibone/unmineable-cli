@@ -55,6 +55,35 @@ Perhaps you want to always show your balance on your tmux status line or somewhe
 
 Do note that there is a 500 requests per minute per IP limit on unMineable. Also every request is cached by 1 second, so there is no need to run the command multiple time in a second.
 
+### Get Worker stats
+
+Shows the number of workers online and their hashrate stats.
+
+example:
+
+```sh
+$ export WALLET="1234xx...........xxx2394"
+$ unmineable workers $WALLET xmr
+```
+
+results:
+
+```
+                 Name: Mini01
+               Status: online
+          Last Online: 2024-08-22T15:00:00.000Z
+    Reported Hashrate: 1167
+  Calculated Hashrate: 1167
+             Referral: 4ayy-vh8c
+
+                 Name: Air01
+               Status: online
+          Last Online: 2024-08-22T15:00:00.000Z
+    Reported Hashrate: 444
+  Calculated Hashrate: 444
+             Referral: 4ayy-vh8c
+```
+
 ### Requirements
 
 - node.js

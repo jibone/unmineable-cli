@@ -18,6 +18,7 @@ export async function getWorkers(uuid: string) {
       const workersList = data[algo].workers;
       for (let worker of workersList) {
         workers.push({
+          algo: algo,
           name: worker.name,
           status: worker.online ? "online" : "offline",
           last: worker.last,

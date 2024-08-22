@@ -79,6 +79,7 @@ program
       const last = new Date(worker.last);
 
       console.log(`
+                 Algo: ${worker.algo}
                  Name: ${worker.name}
                Status: ${worker.status}
           Last Online: ${last.toISOString()}
