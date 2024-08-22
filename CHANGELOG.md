@@ -1,5 +1,11 @@
 # @jibone/unmineable-cli
 
+## 0.1.1
+
+### Patch Changes
+
+- 189c1ec: Update formatting and typos in README
+
 ## 0.1.0
 
 ### Minor Changes
