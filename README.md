@@ -1,9 +1,7 @@
 # unmineable-cli
 
-Work in progress, follow [@jibone](https://x.com/jibone) for update.
-
 > [!CAUTION]
-> This CLI tool is a work in progress. Commands may change.
+> This CLI tool is a work in progress. Commands may change.  
 > Follow [@jibone](https://x.com/jibone) for updates.
 
 ## About
@@ -26,8 +24,8 @@ Get you wallet balance from unMineable with wallet address and coin symbol.
 example:
 
 ```sh
-export WALLET="1234xx...........xxx2394"
-unmineable balance $WALLET xmr
+$ export WALLET="1234xx...........xxx2394"
+$ unmineable balance $WALLET xmr
 ```
 
 returns:
@@ -43,8 +41,8 @@ returns:
 Just return balance
 
 ```sh
-export WALLET="1234xx...........xxx2394"
-unmineable balance $WALLET xmr -b
+$ export WALLET="1234xx...........xxx2394"
+$ unmineable balance $WALLET xmr -b
 ```
 
 returns:
@@ -63,7 +61,7 @@ Do note that there is a 500 requests per minute per IP limit on unMineable. Also
 
 ### To Dos
 
-- [x] balance - Show wallet balance.
-- [ ] workers - Show worker status.
-- [ ] stats - Show the full stats.
-- [ ] payments - Show the payment list.
+- ✅ balance - Show wallet balance.
+- ⏳ workers - Show worker status.
+- ⏳ stats - Show the full stats.
+- ⏳ payments - Show the payment list.
