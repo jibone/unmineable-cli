@@ -1,5 +1,15 @@
 # @jibone/unmineable-cli
 
+## 0.1.0
+
+### Minor Changes
+
+- 2b8f3bd: In this change:
+
+  - the -V options to show version now gets from package.json
+  - implemented the balance command, refer to README for usage guides.
+  - updated the README.
+
 ## 0.0.4
 
 ### Patch Changes
