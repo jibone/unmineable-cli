@@ -1,7 +1,12 @@
 {
   "name": "@jibone/unmineable-cli",
   "version": "0.2.0",
-  "description": "Cli interface to unMineable.",
+  "description": "CLI interface to unMineable.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jibone/unmineable-cli.git"
+  },
+  "homepage": "https://github.com/jibone/unmineable-cli",
   "bin": {
     "unmineable": "./dist/index.js"
   },

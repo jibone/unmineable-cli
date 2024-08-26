@@ -17,9 +17,36 @@ $ npm install -g @jibone/unmineable-cli
 $ unmineable --help
 ```
 
+### Get all stats
+
+Get all the stats on unMineable base on wallet and coin symbol.
+
+example:
+
+```sh
+$ export WALLET="1234xx...........xxx2394"
+$ unmineable stats $WALLET xmr
+```
+
+returns:
+
+```
+     Mining Balance: 0.00253285
+   Referral Balance: 0.00000677
+            Balance: 0.00253962
+  Payment Threshold: 0.03
+       24h Rewarded: 0.00011467
+        7d Rewarded: 0.00072555
+       30d Rewarded: 0.00205695
+         Total Paid: 0
+       Last Payment: -
+               coin: XMR
+            network: XMR
+```
+
 ### Get Wallet Balance
 
-Get you wallet balance from unMineable with wallet address and coin symbol.
+Get your wallet balance.
 
 example:
 
@@ -55,7 +82,7 @@ Perhaps you want to always show your balance on your tmux status line or somewhe
 
 Do note that there is a 500 requests per minute per IP limit on unMineable. Also every request is cached by 1 second, so there is no need to run the command multiple time in a second.
 
-### Get Worker stats
+### Get current worker stats
 
 Shows the number of workers online and their hashrate stats.
 
@@ -82,6 +109,8 @@ results:
     Reported Hashrate: 444
   Calculated Hashrate: 444
              Referral: 4ayy-vh8c
+
+
 ```
 
 ### Requirements
@@ -92,5 +121,6 @@ results:
 
 - ✅ balance - Show wallet balance.
 - ✅ workers - Show workers status.
-- ⏳ stats - Show the full stats.
+- ✅ stats - Show the full stats.
 - ⏳ payments - Show the payment list.
+- ⏳ each command can return specific fields value. Might be useful to use in shell scripting.

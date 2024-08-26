@@ -4,19 +4,20 @@ export async function getWorkers(uuid: string) {
 
   const url = `https://api.unminable.com/v4/account/${uuid}/workers`;
   const res = await fetch(url);
-  const result = (await res.json()) as any;
+  // eslint-disable-next-line
+  const result = (await res.json()) as any; // [TODO] set proper type for this
 
   if (!result.success) {
     error = true;
     errorMsg = result.msg;
   }
 
-  let workers = [];
+  const workers = [];
   const data = result.data;
-  for (let algo in data) {
+  for (const algo in data) {
     if (data[algo].workers.length > 0) {
       const workersList = data[algo].workers;
-      for (let worker of workersList) {
+      for (const worker of workersList) {
         workers.push({
           algo: algo,
           name: worker.name,
