@@ -8,6 +8,18 @@ import { getStats } from "./command/stats";
 
 const program = new Command();
 
+async function getWalletUUID(wallet: string, coin: string) {
+  const { error, errorMsg, data } = await getUUID(wallet, coin);
+  if (error) {
+    console.log(`Error: ${errorMsg}`);
+  }
+
+  return {
+    walletUUIDError: error,
+    uuid: data.uuid,
+  };
+}
+
 program
   .name("unmineable-cli")
   .description("CLI tool to query unMineable mining pool")
@@ -43,8 +55,7 @@ program
     Balance Payable: ${data.balancePayable}
   Payment Threshold: ${data.paymentThreshold}
             Network: ${data.network}
-         Mining Fee: ${data.miningFee}
-      `);
+         Mining Fee: ${data.miningFee}`);
     }
   });
 
@@ -55,18 +66,7 @@ program
   .argument("<coin>", "The coin symbol")
   .showHelpAfterError()
   .action(async (wallet, coin) => {
-    const getWalletUUID = async () => {
-      const { error, errorMsg, data } = await getUUID(wallet, coin);
-      if (error) {
-        console.log(`Error: ${errorMsg}`);
-      }
-
-      return {
-        walletUUIDError: error,
-        uuid: data.uuid,
-      };
-    };
-    const { walletUUIDError, uuid } = await getWalletUUID();
+    const { walletUUIDError, uuid } = await getWalletUUID(wallet, coin);
 
     if (walletUUIDError) return;
 
@@ -96,18 +96,7 @@ program
   .argument("<coin>", "The coin symbol")
   .showHelpAfterError()
   .action(async (wallet, coin) => {
-    const getWalletUUID = async () => {
-      const { error, errorMsg, data } = await getUUID(wallet, coin);
-      if (error) {
-        console.log(`Error: ${errorMsg}`);
-      }
-
-      return {
-        walletUUIDError: error,
-        uuid: data.uuid,
-      };
-    };
-    const { walletUUIDError, uuid } = await getWalletUUID();
+    const { walletUUIDError, uuid } = await getWalletUUID(wallet, coin);
 
     if (walletUUIDError) return;
 
