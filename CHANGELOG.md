@@ -1,5 +1,12 @@
 # @jibone/unmineable-cli
 
+## 0.3.0
+
+### Minor Changes
+
+- 64084cc: - Implement the get stats command.
+  - Some code refactor and README update.
+
 ## 0.2.0
 
 ### Minor Changes
