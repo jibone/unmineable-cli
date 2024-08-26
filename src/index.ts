@@ -4,15 +4,15 @@ import { Command } from "commander";
 import { getBalance } from "./command/balance";
 import { getUUID } from "./command/uuid";
 import { getWorkers } from "./command/workers";
-
-let { version } = require("./../package.json");
+import { getStats } from "./command/stats";
 
 const program = new Command();
 
 program
   .name("unmineable-cli")
   .description("CLI tool to query unMineable mining pool")
-  .version(version);
+  // eslint-disable-next-line
+  .version(require("./../package.json").version);
 
 program.addHelpText(
   "after",
@@ -75,7 +75,7 @@ program
       console.log(`Error: ${errorMsg}`);
     }
 
-    for (let worker of data.workers) {
+    for (const worker of data.workers) {
       const last = new Date(worker.last);
 
       console.log(`
@@ -87,6 +87,50 @@ program
   Calculated Hashrate: ${worker.chr}
              Referral: ${worker.referral}`);
     }
+  });
+
+program
+  .command("stats")
+  .description("Get all wallet stats")
+  .argument("<wallet>", "The wallet address")
+  .argument("<coin>", "The coin symbol")
+  .showHelpAfterError()
+  .action(async (wallet, coin) => {
+    const getWalletUUID = async () => {
+      const { error, errorMsg, data } = await getUUID(wallet, coin);
+      if (error) {
+        console.log(`Error: ${errorMsg}`);
+      }
+
+      return {
+        walletUUIDError: error,
+        uuid: data.uuid,
+      };
+    };
+    const { walletUUIDError, uuid } = await getWalletUUID();
+
+    if (walletUUIDError) return;
+
+    const { error, errorMsg, data } = await getStats(uuid);
+    if (error) {
+      console.log(`Error: ${errorMsg}`);
+    }
+
+    const stats = data.stats;
+    const last = new Date(stats.lastPayment);
+
+    console.log(`
+     Mining Balance: ${stats.miningBalance}
+   Referral Balance: ${stats.referralBalance}
+            Balance: ${stats.balance}
+  Payment Threshold: ${stats.paymentThreshold}
+       24h Rewarded: ${stats.reward24h}
+        7d Rewarded: ${stats.reward7d}
+       30d Rewarded: ${stats.reward30d}
+         Total Paid: ${stats.paid}
+       Last Payment: ${stats.paid === "0" ? "-" : last.toISOString()}
+               coin: ${stats.coin}
+            network: ${stats.network}`);
   });
 
 program.parse(process.argv);
